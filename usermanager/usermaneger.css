@@ -1,45 +1,66 @@
-.admin-page {
+/* MAIN */
+body {
     width: 100vw;
     height: 100vh;
 }
 
 header {
     width: 100%;
-    height: 40px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 5px 20px;
+    background-color: #673ab7;
+    color: aliceblue;
 }
 
-.box {
+header h3 {
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 35px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}
+
+
+.user_box {
     display: flex;
     align-items: center;
 }
 
-.admin-container {
-    height: calc(100vh - 4px);
+.user_box>span {
+    margin-right: 5px;
+}
+
+.nav-box {
     display: flex;
-
+    align-items: center;
 }
 
-.menubar {
-    height: 100%;
-    width: 200px;
-    background-color: blueviolet;
+.nav-box>button {
+    margin-left: 10px;
 }
 
-.menubar .btn {
-    border: 1px solid none;
-    width: 200px;
-    height: 50px;
-    font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
-    font-size: 15px;
-    font-style: italic;
-    font-variant: normal;
-    font-weight: 700;
-    line-height: 16.5px;
+.admin_page_container {
+    display: flex;
 }
 
-.table-striped-columns {
-    width: 100%;
+
+
+.content h1 {
+    color: #673ab7;
+    text-align: center;
+    margin: 20px;
+}
+
+/* MAIN END */
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 100px;
+    margin: 10px 50px;
 }

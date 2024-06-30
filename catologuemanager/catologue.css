@@ -1,3 +1,4 @@
+/* MAIN */
 body {
     width: 100vw;
     height: 100vh;
@@ -11,7 +12,7 @@ header {
     justify-content: space-between;
     padding: 5px 20px;
     background-color: #673ab7;
-    color: rgb(223, 157, 225);
+    color: aliceblue;
 }
 
 header h3 {
@@ -22,6 +23,7 @@ header h3 {
     font-weight: 700;
     line-height: 15.4px;
 }
+
 
 .user_box {
     display: flex;
@@ -45,13 +47,18 @@ header h3 {
     display: flex;
 }
 
-.content {
-    width: 100vw;
-    height: 100vh;
-    color: white;
-    background-color: #9175cc;
+/* MAIN END */
+
+.content h1 {
+    color: #673ab7;
+    text-align: center;
+    margin: 20px;
+}
+
+.btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-
+    justify-content: right;
+    gap: 100px;
+    margin: 10px 50px;
 }
