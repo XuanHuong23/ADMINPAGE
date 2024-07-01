@@ -33,9 +33,10 @@ function renderHeader() {
     `
 }
 renderHeader()
+
 // lấy dữ liệu
-function renderData() {
-    let userList = JSON.parse(localStorage.getItem("userList"))
+function renderData(userList) {
+    // let userList = JSON.parse(localStorage.getItem("userList"))
     let template = ``;
     for (let i = 0; i < userList.length; i++) {
         template += `
@@ -55,9 +56,9 @@ function renderData() {
     document.querySelector("#user_box").innerHTML = template;
 
 }
-renderData()
+renderData(JSON.parse(localStorage.getItem("userList")))
 
-// thay đổi trạng thái dữ liệu
+// thay đổi trạng thái dữ liệu ==> hiện tất cả dữ liệu
 function changeStatusUser(userId) {
     let userList = JSON.parse(localStorage.getItem("userList"))
     for (let i = 0; i < userList.length; i++) {
@@ -67,8 +68,9 @@ function changeStatusUser(userId) {
         }
     }
     localStorage.setItem("userList", JSON.stringify(userList))
-    renderData()
+    loadlistData()
 }
+
 // thêm dữ iệu
 function addUser() {
     let newUser = {
@@ -88,6 +90,7 @@ function addUser() {
     localStorage.setItem("userList", JSON.stringify(userList))
     changePage()
 }
+
 // xóa dữ liệu
 function deleteUser(userId) {
     let userList = JSON.parse(localStorage.getItem("userList"))
@@ -98,9 +101,11 @@ function deleteUser(userId) {
         }
     }
     localStorage.setItem("userList", JSON.stringify(userList))
-    renderData();
+    renderData(JSON.parse(localStorage.getItem("userList")))
 }
-// phân trang --->lỗi
+
+
+
 let limit = 3
 let nowPage = 0
 
@@ -111,10 +116,10 @@ function printPageList() {
     let template = ``
     for (let i = 0; i < pageCount; i++) {
         template += `
-            <button onclick="changePage(${i})>${i}</button>
+            <button onclick="changePage(${i})">${i}</button>
 `
     }
-    document.querySelector(".page_list").innerHTML = template
+    document.querySelector("#page_list").innerHTML = template
 }
 printPageList()
 
@@ -137,18 +142,16 @@ function loadlistData() {
 loadlistData()
 
 function changePage(page) {
-    console.log("page", page);
     nowPage = page
     printPageList()
     loadlistData()
 }
-// tìm kiếm ----> lỗi
+
+
 function searchData() {
-
-    let inputSearch = document.querySelector(".searchData").value
     let userList = JSON.parse(localStorage.getItem("userList"))
+    let inputSearch = document.querySelector(".searchData").value
 
-    console.log("inputSearch", inputSearch)
     let searchList = []
     for (const i in userList) {
         if (inputSearch == " ") {
@@ -161,4 +164,18 @@ function searchData() {
 
     }
     renderData(searchList)
+}
+
+let sortList = document.getElementById("sortList")
+sortList.onchange = function (event) {
+    console.log("event", event.target.value);
+    let userList = JSON.parse(localStorage.getItem("userList"))
+    if (event.target.value === "name_asc") {
+        userList.sort((a, b) => a.userName.localeCompare(b.userName))
+    } else {
+        userList.sort((a, b) => b.userName.localeCompare(a.userName))
+    }
+    // renderData(userList)
+    localStorage.setItem("userList", JSON.stringify(userList))
+    loadlistData()
 }

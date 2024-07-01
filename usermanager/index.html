@@ -44,9 +44,14 @@
             <div class="btn">
                 <button onclick="addUser()" type="button" class="btn btn-success">Thêm người dùng
                 </button>
-                <button onclick="searchData()" type="button" class="btn btn-success">Tìm Kiếm</button>
-                <input class=" searchData" type="text" placeholder="Tìm kiếm">
-
+                <div class="btnsearch">
+                    <button onclick="searchData()" type="button" class="btn btn-success">Tìm Kiếm</button>
+                    <input class=" searchData" type="text" placeholder="Tìm kiếm">
+                </div>
+                <select id="sortList" class="sortlist">
+                    <option value="name_asc">Tên tăng dần</option>
+                    <option value="name_desc">Tên giảm dần</option>
+                </select>
             </div>
             <table class=" table table-success table-striped-columns">
                 <thead>
@@ -62,7 +67,7 @@
 
                 </tbody>
             </table>
-            <div class="page_list">
+            <div id="page_list">
 
             </div>
         </div>

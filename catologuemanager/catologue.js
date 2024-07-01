@@ -6,7 +6,7 @@
 //         Status: true
 //     },
 //     {
-//         id: 1,
+//         id: 2,
 //         cataName: "Kem lót",
 //         place: "Khu B1",
 //         Status: true
@@ -33,8 +33,8 @@ function renderHeader() {
 
 renderHeader()
 
-function renderData() {
-    let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
+function renderData(catalogueList) {
+    // let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
     let template = ``;
     for (let i = 0; i < catalogueList.length; i++) {
         template += `
@@ -47,8 +47,8 @@ function renderData() {
                     <button onclick="changeStatusCata(${catalogueList[i].id})" class="btn btn-info">Còn Trong Kho/ Nhập Thêm Hàng</button>
                 </td>
                 <td>
-                    <button onclick="editcatalogue(${catalogueList[i].id})" class="btn btn-danger">Sửa</button>
-                    <button onclick="deletecatalogue(${catalogueList[i].id})" class="btn btn-danger">Xóa</button>
+                    <button onclick="editCatalogue(${catalogueList[i].id})" class="btn btn-danger" id="btnid">Sửa</button>
+                    <button onclick="deleteCatalogue(${catalogueList[i].id})" class="btn btn-danger" id="btnid">Xóa</button>
                 </td>
             </tr>
         `
@@ -56,7 +56,7 @@ function renderData() {
     document.querySelector("tbody").innerHTML = template;
 
 }
-renderData()
+renderData(JSON.parse(localStorage.getItem("catalogueList")))
 
 function changeStatusCata(cataId) {
     let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
@@ -67,33 +67,27 @@ function changeStatusCata(cataId) {
         }
     }
     localStorage.setItem("catalogueList", JSON.stringify(catalogueList))
-    renderData()
+    renderData(JSON.parse(localStorage.getItem("catalogueList")))
 }
 
 function addcatalogue() {
     let newCatalogue = {
         id: Date.now(),
-        cataName: window.prompt("Nhập tên danh mục"),
-        place: window.prompt("Nhập kho hàng"),
+        cataName: document.getElementById("catalogueName").value,
+        place: document.getElementById("place").value,
         Status: true
     }
 
     let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
     catalogueList.push(newCatalogue)
     localStorage.setItem("catalogueList", JSON.stringify(catalogueList))
-    renderData()
+    renderData(JSON.parse(localStorage.getItem("catalogueList")))
 
 }
 
-// function editcatalogue(id) {
-//     for (let i = 0; i < catalogueList.length; i++) {
-//         if (catalogueList[i].id == id) {
-// cât
-//      }
-//     }
-// }
 
-function deletecatalogue(cataId) {
+
+function deleteCatalogue(cataId) {
     let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
     for (let i = 0; i < catalogueList.length; i++) {
         if (catalogueList[i].id == cataId) {
@@ -102,7 +96,7 @@ function deletecatalogue(cataId) {
         }
     }
     localStorage.setItem("catalogueList", JSON.stringify(catalogueList))
-    renderData()
+    renderData(JSON.parse(localStorage.getItem("catalogueList")))
 }
 
 let limit = 3
@@ -115,10 +109,10 @@ function printPageList() {
     let template = ``
     for (let i = 0; i < pageCount; i++) {
         template += `
-            <button onclick="changePage(${i})>${i}</button>
+            <button onclick="changePage(${i})">${i}</button>
 `
     }
-    document.querySelector(".page_list").innerHTML = template
+    document.querySelector("#page_list").innerHTML = template
 }
 printPageList()
 
@@ -144,5 +138,18 @@ function changePage(page) {
     nowPage = page
     printPageList()
     loadlistData()
+}
+
+function editCatalogue(id) {
+    let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
+    for (let i = 0; i < catalogueList.length; i++) {
+        if (catalogueList[i].id === id) {
+            catalogueList[i].cataName = document.getElementById("catalogueName").value
+            catalogueList[i].place = document.getElementById("place").value
+        }
+    }
+    console.log("id", id);
+    localStorage.setItem("catalogueList", JSON.stringify(catalogueList))
+    renderData(catalogueList)
 }
 

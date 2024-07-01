@@ -42,9 +42,16 @@
         <div class="content">
             <h1>QUẢN LÝ SẢN PHẨM</h1>
             <div class="btn">
-                <button onclick="addcatalogue()" type="button" class="btn btn-success">Thêm danh mục
-                </button>
-                <input oninput="search(event)" class="search" type="text" placeholder="Tìm kiếm">
+                <div class="textid">
+                    <input id="productName" type="text" placeholder="Tên sản phẩm">
+                    <input id="catalogue" type="text" placeholder="tên danh mục">
+                    <input id="price" type="text" placeholder="Giá sản phẩm">
+                </div>
+                <button onclick="addcatalogue()" type="button" class="btn btn-success">Thêm danh mục </button>
+                <div class="btnsearch">
+                    <input class=" searchData" type="text" placeholder="Tìm kiếm">
+                    <button onclick="searchData()" type="button" class="btn btn-success">Tìm Kiếm</button>
+                </div>
             </div>
             <table class="table table-success table-striped-columns">
                 <thead>
@@ -52,6 +59,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">PRODUCT NAME</th>
                         <th scope="col">CATALOGUE</th>
+                        <th scope="col">PRICE</th>
                         <th scope="col">STATUS</th>
                         <th scope="col">TOOL</th>
                         <th scope="col">EDIT</th>

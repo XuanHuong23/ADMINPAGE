@@ -58,7 +58,25 @@ header h3 {
 .btn {
     display: flex;
     align-items: center;
+
+    margin: 10px 20px;
+}
+
+.btnsearch {
+    display: flex;
+    align-items: center;
     justify-content: right;
-    gap: 100px;
-    margin: 10px 50px;
+    margin-left: 150px;
+}
+
+.btn .testid {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+}
+
+#btnid {
+
+    display: inline;
+    margin: 0 5px;
 }

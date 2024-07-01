@@ -3,12 +3,14 @@
 //         id: 1,
 //         productName: "Dầu gội H&S",
 //         catalogue: "Phụ liệu tóc",
+//         price: 2000,
 //         Status: true
 //     },
 //     {
 //         id: 2,
 //         productName: "Dầu gội Clear",
 //         catalogue: "Phụ liệu tóc",
+//         price: 1500,
 //         Status: true
 //     }
 // ]
