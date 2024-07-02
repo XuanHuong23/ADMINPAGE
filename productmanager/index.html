@@ -42,12 +42,15 @@
         <div class="content">
             <h1>QUẢN LÝ SẢN PHẨM</h1>
             <div class="btn">
+                <!-- dung select de chon danh muc -->
                 <div class="textid">
                     <input id="productName" type="text" placeholder="Tên sản phẩm">
-                    <input id="catalogue" type="text" placeholder="tên danh mục">
                     <input id="price" type="text" placeholder="Giá sản phẩm">
+                    <select id="catalogue">
+                        <!-- <option value="">Tên danh mục</option> -->
+                    </select>
                 </div>
-                <button onclick="addcatalogue()" type="button" class="btn btn-success">Thêm danh mục </button>
+                <button onclick="addcatalogue()" type="button" class="btn btn-success">Thêm sản phẩm</button>
                 <div class="btnsearch">
                     <input class=" searchData" type="text" placeholder="Tìm kiếm">
                     <button onclick="searchData()" type="button" class="btn btn-success">Tìm Kiếm</button>

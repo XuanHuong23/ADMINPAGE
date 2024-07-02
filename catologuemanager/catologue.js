@@ -33,6 +33,7 @@ function renderHeader() {
 
 renderHeader()
 
+//lay du lieu ra man hinh
 function renderData(catalogueList) {
     // let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
     let template = ``;
@@ -58,6 +59,7 @@ function renderData(catalogueList) {
 }
 renderData(JSON.parse(localStorage.getItem("catalogueList")))
 
+//thay doi trang thai
 function changeStatusCata(cataId) {
     let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
     for (let i = 0; i < catalogueList.length; i++) {
@@ -70,6 +72,7 @@ function changeStatusCata(cataId) {
     renderData(JSON.parse(localStorage.getItem("catalogueList")))
 }
 
+//them du lieu
 function addcatalogue() {
     let newCatalogue = {
         id: Date.now(),
@@ -86,7 +89,7 @@ function addcatalogue() {
 }
 
 
-
+//xoa du lieu
 function deleteCatalogue(cataId) {
     let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
     for (let i = 0; i < catalogueList.length; i++) {
@@ -99,6 +102,7 @@ function deleteCatalogue(cataId) {
     renderData(JSON.parse(localStorage.getItem("catalogueList")))
 }
 
+//phan trang
 let limit = 3
 let nowPage = 0
 
@@ -140,6 +144,7 @@ function changePage(page) {
     loadlistData()
 }
 
+//them du lieu
 function editCatalogue(id) {
     let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
     for (let i = 0; i < catalogueList.length; i++) {
@@ -152,4 +157,6 @@ function editCatalogue(id) {
     localStorage.setItem("catalogueList", JSON.stringify(catalogueList))
     renderData(catalogueList)
 }
+
+//sap sep du lieu
 

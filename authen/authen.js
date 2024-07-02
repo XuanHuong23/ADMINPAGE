@@ -14,19 +14,19 @@
 // ]
 
 // localStorage.setItem("userList", JSON.stringify(userList))
-
+//dang nhap
 function signIn(event) {
-    event.preventDefault();
-    let userInfor = {
-        userName: event.target.userName.value,
+    event.preventDefault();//phương thức để chặn các hành vi mặc định
+    let userInfor = { //tạo biến thông tin user
+        userName: event.target.userName.value,//lấy giá trị username
         password: event.target.password.value
     }
 
-    let userList = JSON.parse(localStorage.getItem("userList"));
+    let userList = JSON.parse(localStorage.getItem("userList"))//lấy giá trị từ local
 
-    let userResult = null;
-    for (let i = 0; i < userList.length; i++) {
-        if (userList[i].userName == userInfor.userName) {
+    let userResult = null;//tạo một biến bằng null
+    for (let i = 0; i < userList.length; i++) {//chạy for 
+        if (userList[i].userName == userInfor.userName) {//nếu 
             userResult = userList[i];
             break;
         }

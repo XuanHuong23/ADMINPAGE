@@ -36,21 +36,22 @@ function renderHeader() {
 renderHeader()
 
 function renderData() {
-    let catalogueList = JSON.parse(localStorage.getItem("catalogueList"))
+    let productList = JSON.parse(localStorage.getItem(productList))
     let template = ``;
-    for (let i = 0; i < catalogueList.length; i++) {
+    for (let i = 0; i < productList.length; i++) {
         template += `
             <tr>
                 <td scope="row">${i + 1}</td>
-                <td>${catalogueList[i].cataName}</td>
-                <td>${catalogueList[i].place}</td>
-                <td>${catalogueList[i].status ? "còn trong kho" : "nhập thêm hàng"}</td>
+                <td>${productList[i].productName}</td>
+                <td>${productList[i].catalogue}</td>
+                <td>${productList[i].price}</td>
+                <td>${productList[i].status ? "Còn trong kho" : "Nhập thêm hàng"}</td>
                 <td>
-                    <button onclick="changeStatusCata(${catalogueList[i].id})" class="btn btn-info">Còn Trong Kho/ Nhập Thêm Hàng</button>
+                    <button onclick="changeStatusProduct(${productList[i].id})" class="btn btn-info">Còn Trong Kho/ Nhập Thêm Hàng</button>
                 </td>
                 <td>
-                    <button onclick="editcatalogue(${catalogueList[i].id})" class="btn btn-danger">Sửa</button>
-                    <button onclick="deletecatalogue(${catalogueList[i].id})" class="btn btn-danger">Xóa</button>
+                    <button onclick="editProduct(${productList[i].id})" class="btn btn-danger">Sửa</button>
+                    <button onclick="deleteProduct(${productList[i].id})" class="btn btn-danger">Xóa</button>
                 </td>
             </tr>
         `
@@ -59,3 +60,16 @@ function renderData() {
 
 }
 renderData()
+
+function getCatoloue(catologueList) {
+
+    let template = ``
+    for (let i = 0; i.catologueList.length; i++) {
+        template = `
+    <option value="Tên danh mục">${catologueList[i].catalogue}</option>
+    `
+    }
+    document.getElementById("catalogue").innerHTML = template
+}
+getCatoloue(JSON.parse(localStorage.getItem("catologueList")))
+

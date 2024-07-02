@@ -41,17 +41,19 @@
         </div>
         <div class="content">
             <h1>QUẢN LÝ NGƯỜI DÙNG</h1>
+
             <div class="btn">
+                <select onchange="sortList(event)" class="sortlist">
+                    <option value="name_asc">Tên tăng dần</option>
+                    <option value="name_desc">Tên giảm dần</option>
+                </select>
                 <button onclick="addUser()" type="button" class="btn btn-success">Thêm người dùng
                 </button>
                 <div class="btnsearch">
                     <button onclick="searchData()" type="button" class="btn btn-success">Tìm Kiếm</button>
                     <input class=" searchData" type="text" placeholder="Tìm kiếm">
                 </div>
-                <select id="sortList" class="sortlist">
-                    <option value="name_asc">Tên tăng dần</option>
-                    <option value="name_desc">Tên giảm dần</option>
-                </select>
+
             </div>
             <table class=" table table-success table-striped-columns">
                 <thead>
